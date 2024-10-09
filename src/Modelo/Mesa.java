@@ -1,14 +1,18 @@
 package Modelo;
 
 public class Mesa {
-
     private int numeroMesa;   
     private int capacidad;   
     private String estado;    
 
     public Mesa() {
     }
-   
+
+    public Mesa(int capacidad, String estado) {
+        this.capacidad = capacidad;
+        this.estado = estado;
+    }
+    
     public Mesa(int numeroMesa, int capacidad, String estado) {
         this.numeroMesa = numeroMesa;
         this.capacidad = capacidad;

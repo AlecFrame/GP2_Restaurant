@@ -1,21 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Modelo;
 
-/**
- *
- * @author Luciano
- */
 public class Mesero {
     private String dniMesero;
     private String apellido;
 
+    public Mesero() {
+    }
+
+    public Mesero(String apellido) {
+        this.apellido = apellido;
+    }
+    
     public Mesero(String dniMesero, String apellido) {
         this.dniMesero = dniMesero;
         this.apellido = apellido;
     }
 
-    
+    public String getDniMesero() {
+        return dniMesero;
+    }
+
+    public void setDniMesero(String dniMesero) {
+        this.dniMesero = dniMesero;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 }
