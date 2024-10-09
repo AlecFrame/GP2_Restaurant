@@ -9,5 +9,13 @@ package Modelo;
  * @author Luciano
  */
 public class Mesero {
+    private String dniMesero;
+    private String apellido;
+
+    public Mesero(String dniMesero, String apellido) {
+        this.dniMesero = dniMesero;
+        this.apellido = apellido;
+    }
+
     
 }
