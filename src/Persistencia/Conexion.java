@@ -1,13 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Persistencia;
 
-/**
- *
- * @author nidel
- */
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 public class Conexion {
+    private static String URL = "jdbc:mysql://localhost/";
+    private static String BD = "gp2_restaurant";
+    private static String USUARIO = "root";
+    private static String PASSWORD = "";
     
+    public static Connection conexion = null;
+    
+    public static Connection cargaConexion() {
+        if (conexion == null) {
+            try {
+                Class.forName("org.mariadb.jdbc.Driver");
+                conexion=DriverManager.getConnection(URL+BD,USUARIO,PASSWORD);
+            }catch(SQLException|ClassNotFoundException e) {
+               JOptionPane.showMessageDialog(null, "No cargaron los drives o base de datos");
+            }
+        }
+        return conexion;
+    }
 }
