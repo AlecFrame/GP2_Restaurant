@@ -5,11 +5,11 @@ package Modelo;
 public class DetallePedido {
     private int idDetalle;
     private int codigo;
-    private int idPedido;
+    private Pedido idPedido;
     private int cantidad;
     private int total;
 
-    public DetallePedido(int idDetalle, int codigo, int idPedido, int cantidad, int total) {
+    public DetallePedido(int idDetalle, int codigo, Pedido idPedido, int cantidad, int total) {
         this.idDetalle = idDetalle;
         this.codigo = codigo;
         this.idPedido = idPedido;
@@ -17,7 +17,7 @@ public class DetallePedido {
         this.total = total;
     }
 
-    public DetallePedido(int codigo, int idPedido, int cantidad, int total) {
+    public DetallePedido(int codigo, Pedido idPedido, int cantidad, int total) {
         this.codigo = codigo;
         this.idPedido = idPedido;
         this.cantidad = cantidad;
@@ -42,11 +42,11 @@ public class DetallePedido {
         this.codigo = codigo;
     }
 
-    public int getIdPedido() {
+    public Pedido getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(int idPedido) {
+    public void setIdPedido(Pedido idPedido) {
         this.idPedido = idPedido;
     }
 
