@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class Reserva {
     private int idReserva;
-    private int numero_mesa;
+    private Mesa numero_mesa;
     private String dni_cliente;
     private String nombre;
     private LocalDate fecha;
@@ -16,7 +16,7 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(int numero_mesa, String dni_cliente, String nombre, LocalDate fecha, LocalDateTime hora, String estado) {
+    public Reserva(Mesa numero_mesa, String dni_cliente, String nombre, LocalDate fecha, LocalDateTime hora, String estado) {
         this.numero_mesa = numero_mesa;
         this.dni_cliente = dni_cliente;
         this.nombre = nombre;
@@ -25,7 +25,7 @@ public class Reserva {
         this.estado = estado;
     }
 
-    public Reserva(int idReserva, int numero_mesa, String dni_cliente, String nombre, LocalDate fecha, LocalDateTime hora, String estado) {
+    public Reserva(int idReserva, Mesa numero_mesa, String dni_cliente, String nombre, LocalDate fecha, LocalDateTime hora, String estado) {
         this.idReserva = idReserva;
         this.numero_mesa = numero_mesa;
         this.dni_cliente = dni_cliente;
@@ -43,11 +43,11 @@ public class Reserva {
         this.idReserva = idReserva;
     }
 
-    public int getNumero_mesa() {
+    public Mesa getNumero_mesa() {
         return numero_mesa;
     }
 
-    public void setNumero_mesa(int numero_mesa) {
+    public void setNumero_mesa(Mesa numero_mesa) {
         this.numero_mesa = numero_mesa;
     }
 
