@@ -8,6 +8,6 @@ package Modelo;
  *
  * @author Luciano
  */
-public class mesero {
+public class Mesero {
     
 }

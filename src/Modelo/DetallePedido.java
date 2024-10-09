@@ -10,5 +10,12 @@ package Modelo;
  * @author keter
  */
 public class DetallePedido {
+    private int idDetalle;
+    private int codigo;
+    private int idPedido;
+    private int cantidad;
+    private int total;
+
+    
     
 }
