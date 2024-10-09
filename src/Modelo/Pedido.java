@@ -3,7 +3,7 @@ package Modelo;
 
 public class Pedido {
     private int idPedido;
-    private mesero dni_mesero;
+    private Mesero dni_mesero;
     private Mesa numero_mesa;
     private double pago;
     private boolean pendiente;
@@ -11,14 +11,14 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(mesero dni_mesero, Mesa numero_mesa, double pago, boolean pendiente) {
+    public Pedido(Mesero dni_mesero, Mesa numero_mesa, double pago, boolean pendiente) {
         this.dni_mesero = dni_mesero;
         this.numero_mesa = numero_mesa;
         this.pago = pago;
         this.pendiente = pendiente;
     }
 
-    public Pedido(int idPedido, mesero dni_mesero, Mesa numero_mesa, double pago, boolean pendiente) {
+    public Pedido(int idPedido, Mesero dni_mesero, Mesa numero_mesa, double pago, boolean pendiente) {
         this.idPedido = idPedido;
         this.dni_mesero = dni_mesero;
         this.numero_mesa = numero_mesa;
@@ -34,11 +34,11 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public mesero getDni_mesero() {
+    public Mesero getDni_mesero() {
         return dni_mesero;
     }
 
-    public void setDni_mesero(mesero dni_mesero) {
+    public void setDni_mesero(Mesero dni_mesero) {
         this.dni_mesero = dni_mesero;
     }
 
