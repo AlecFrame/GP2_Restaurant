@@ -17,6 +17,10 @@ public class Mesero {
         this.apellido = apellido;
     }
 
+    public Mesero(int aInt, String string, String string0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getDniMesero() {
         return dniMesero;
     }
@@ -31,5 +35,13 @@ public class Mesero {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public int getDni() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getNombre() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
