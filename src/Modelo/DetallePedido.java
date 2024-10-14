@@ -4,24 +4,27 @@ package Modelo;
 
 public class DetallePedido {
     private int idDetalle;
-    private Producto codigo;
-    private Pedido idPedido;
+    private Producto producto;
+    private Pedido pedido;
     private int cantidad;
     private int total;
+    private boolean estado;
 
-    public DetallePedido(int idDetalle, Producto codigo, Pedido idPedido, int cantidad, int total) {
+    public DetallePedido(int idDetalle, Producto producto, Pedido pedido, int cantidad, int total, boolean estado) {
         this.idDetalle = idDetalle;
-        this.codigo = codigo;
-        this.idPedido = idPedido;
+        this.producto = producto;
+        this.pedido = pedido;
         this.cantidad = cantidad;
         this.total = total;
+        this.estado = estado;
     }
 
-    public DetallePedido(Producto codigo, Pedido idPedido, int cantidad, int total) {
-        this.codigo = codigo;
-        this.idPedido = idPedido;
+    public DetallePedido(Producto producto, Pedido pedido, int cantidad, int total, boolean estado) {
+        this.producto = producto;
+        this.pedido = pedido;
         this.cantidad = cantidad;
         this.total = total;
+        this.estado = estado;
     }
 
     public DetallePedido(){}
@@ -34,20 +37,20 @@ public class DetallePedido {
         this.idDetalle = idDetalle;
     }
 
-    public Producto getCodigo() {
-        return codigo;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setCodigo(Producto codigo) {
-        this.codigo = codigo;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
-    public Pedido getIdPedido() {
-        return idPedido;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setIdPedido(Pedido idPedido) {
-        this.idPedido = idPedido;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     public int getCantidad() {
@@ -64,5 +67,13 @@ public class DetallePedido {
 
     public void setTotal(int total) {
         this.total = total;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 }
