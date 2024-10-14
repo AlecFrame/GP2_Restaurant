@@ -3,7 +3,7 @@ package Modelo;
 
 public class Pedido {
     private int idPedido;
-    private Mesero dni_mesero;
+    private String nombre_mesero;
     private Mesa numero_mesa;
     private double pago;
     private boolean pendiente;

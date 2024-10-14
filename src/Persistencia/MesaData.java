@@ -1,6 +1,7 @@
 
 package Persistencia;
 
+import Modelo.Conexion;
 import Modelo.Mesa;
 import java.sql.*;
 import java.util.ArrayList;

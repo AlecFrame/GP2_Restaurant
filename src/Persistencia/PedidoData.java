@@ -9,6 +9,6 @@ package Persistencia;
  *
  * @author Admin
  */
-class Pedido {
+class PedidoData {
     
 }
