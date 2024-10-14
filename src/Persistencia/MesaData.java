@@ -12,12 +12,13 @@ public class MesaData {
     public MesaData() {}
     
     public void guardarMesa(Mesa m) throws SQLException {
-        String sql = "Insert into mesa(numero_mesa,capacidad,estado) values(?,?,?);";
+        String sql = "Insert into mesa(numero_mesa,capacidad,estado,ocupada) values(?,?,?,?);";
         
         PreparedStatement s = con.prepareStatement(sql);
         s.setInt(1, m.getNumeroMesa());
         s.setInt(2, m.getCapacidad());
-        s.setString(3, m.getEstado());
+        s.setBoolean(3, m.isEstado());
+        s.setString(4, m.getOcupada());
         
         int filas = s.executeUpdate();
         if (filas>0) {
@@ -49,29 +50,30 @@ public class MesaData {
         while (r.next()) {
             mesa = new Mesa(r.getInt("numero_mesa"),
                     r.getInt("capacidad"),
-                    r.getString("estado"));
+                    r.getBoolean("estado"),
+                    r.getString("ocupada"));
         }
         
         return mesa;
     }
     
-    public void CambiarEstado(String estado, int numero) throws SQLException {
-        String sql = "Update mesa set estado = ? where numero_mesa = ?";
+    public void CambiarEstado(String ocupada, int numero) throws SQLException {
+        String sql = "Update mesa set ocupada = ? where numero_mesa = ?";
         
         PreparedStatement s = con.prepareStatement(sql);
-        s.setString(1, estado);
+        s.setString(1, ocupada);
         s.setInt(2, numero);
         
         int filas = s.executeUpdate();
         if (filas>0) {
-            System.out.println("Mesa "+numero+" fue actualizada a "+estado);
+            System.out.println("Mesa "+numero+" fue actualizada a "+ocupada);
         }
     }
     
-    public ArrayList<Mesa> filtrarMesasEstado(String filtro) throws SQLException {
+    public ArrayList<Mesa> filtrarMesasOcupacion(String filtro) throws SQLException {
         ArrayList<Mesa> lista = new ArrayList<>();
         
-        String sql = "SELECT * FROM mesa WHERE estado = ?";
+        String sql = "SELECT * FROM mesa WHERE ocupada = ?";
         
         PreparedStatement s = con.prepareStatement(sql);
         s.setString(1, filtro);
@@ -80,7 +82,8 @@ public class MesaData {
         while (r.next()) {
             lista.add(new Mesa(r.getInt("numero_mesa"),
                     r.getInt("capacidad"),
-                    r.getString("estado")));
+                    r.getBoolean("estado"),
+                    r.getString("ocupada")));
         }
         
         return lista;
@@ -98,7 +101,8 @@ public class MesaData {
         while (r.next()) {
             lista.add(new Mesa(r.getInt("numero_mesa"),
                     r.getInt("capacidad"),
-                    r.getString("estado")));
+                    r.getBoolean("estado"),
+                    r.getString("ocupada")));
         }
         
         return lista;
@@ -115,7 +119,8 @@ public class MesaData {
         while (r.next()) {
             lista.add(new Mesa(r.getInt("numero_mesa"),
                     r.getInt("capacidad"),
-                    r.getString("estado")));
+                    r.getBoolean("estado"),
+                    r.getString("ocupada")));
         }
         
         return lista;
