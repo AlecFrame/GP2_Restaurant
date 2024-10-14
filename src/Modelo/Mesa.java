@@ -53,4 +53,7 @@ public class Mesa {
     public void setOcupada(String ocupada) {
         this.ocupada = ocupada;
     }
+    
+    
+    
 }

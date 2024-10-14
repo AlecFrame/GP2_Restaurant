@@ -21,7 +21,7 @@ public class VentPrincipal extends javax.swing.JFrame {
     public VentPrincipal() {
         initComponents();
         
-        escritorio= new Ventana.EscritorioPersonalizado_Ej2();
+        escritorio= new VentPrincipal.EscritorioPersonalizado_Ej2();
         this.setContentPane(escritorio);
         this.setLocationRelativeTo(this);
     }
@@ -93,7 +93,7 @@ public class VentPrincipal extends javax.swing.JFrame {
 
         public EscritorioPersonalizado_Ej2() {
             try{
-                img=ImageIO.read(getClass().getResourceAsStream("/Recursos/r16.png"));
+                img=ImageIO.read(getClass().getResourceAsStream("/Recursos/r20.png"));
             }catch(Exception e){
                 e.printStackTrace();
             }
