@@ -3,27 +3,30 @@ package Modelo;
 
 public class Pedido {
     private int idPedido;
-    private String nombre_mesero;
-    private Mesa numero_mesa;
-    private double pago;
-    private boolean pendiente;
+    private String dni_mesero;
+    private Mesa mesa;
+    private double importe;
+    private boolean cobrado;
+    private boolean estado;
 
-    public Pedido() {
-    }
-
-    public Pedido(Mesero dni_mesero, Mesa numero_mesa, double pago, boolean pendiente) {
-        this.dni_mesero = dni_mesero;
-        this.numero_mesa = numero_mesa;
-        this.pago = pago;
-        this.pendiente = pendiente;
-    }
-
-    public Pedido(int idPedido, Mesero dni_mesero, Mesa numero_mesa, double pago, boolean pendiente) {
+    public Pedido(int idPedido, String dni_mesero, Mesa mesa, double importe, boolean cobrado, boolean estado) {
         this.idPedido = idPedido;
         this.dni_mesero = dni_mesero;
-        this.numero_mesa = numero_mesa;
-        this.pago = pago;
-        this.pendiente = pendiente;
+        this.mesa = mesa;
+        this.importe = importe;
+        this.cobrado = cobrado;
+        this.estado = estado;
+    }
+
+    public Pedido(String dni_mesero, Mesa mesa, double importe, boolean cobrado, boolean estado) {
+        this.dni_mesero = dni_mesero;
+        this.mesa = mesa;
+        this.importe = importe;
+        this.cobrado = cobrado;
+        this.estado = estado;
+    }
+
+    public Pedido() {
     }
 
     public int getIdPedido() {
@@ -34,35 +37,43 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public Mesero getDni_mesero() {
+    public String getDni_mesero() {
         return dni_mesero;
     }
 
-    public void setDni_mesero(Mesero dni_mesero) {
+    public void setDni_mesero(String dni_mesero) {
         this.dni_mesero = dni_mesero;
     }
 
-    public Mesa getNumero_mesa() {
-        return numero_mesa;
+    public Mesa getMesa() {
+        return mesa;
     }
 
-    public void setNumero_mesa(Mesa numero_mesa) {
-        this.numero_mesa = numero_mesa;
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
     }
 
-    public double getPago() {
-        return pago;
+    public double getImporte() {
+        return importe;
     }
 
-    public void setPago(double pago) {
-        this.pago = pago;
+    public void setImporte(double importe) {
+        this.importe = importe;
     }
 
-    public boolean isPendiente() {
-        return pendiente;
+    public boolean isCobrado() {
+        return cobrado;
     }
 
-    public void setPendiente(boolean pendiente) {
-        this.pendiente = pendiente;
+    public void setCobrado(boolean cobrado) {
+        this.cobrado = cobrado;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 }
