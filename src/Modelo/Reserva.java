@@ -6,32 +6,35 @@ import java.time.LocalDateTime;
 
 public class Reserva {
     private int idReserva;
-    private Mesa numero_mesa;
+    private Mesa mesa;
     private String dni_cliente;
     private String nombre;
     private LocalDate fecha;
     private LocalDateTime hora;
-    private String estado;
+    private String vigencia;
+    private boolean estado;
 
     public Reserva() {
     }
 
-    public Reserva(Mesa numero_mesa, String dni_cliente, String nombre, LocalDate fecha, LocalDateTime hora, String estado) {
-        this.numero_mesa = numero_mesa;
+    public Reserva(Mesa mesa, String dni_cliente, String nombre, LocalDate fecha, LocalDateTime hora, String vigencia, boolean estado) {
+        this.mesa = mesa;
         this.dni_cliente = dni_cliente;
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;
+        this.vigencia = vigencia;
         this.estado = estado;
     }
 
-    public Reserva(int idReserva, Mesa numero_mesa, String dni_cliente, String nombre, LocalDate fecha, LocalDateTime hora, String estado) {
+    public Reserva(int idReserva, Mesa mesa, String dni_cliente, String nombre, LocalDate fecha, LocalDateTime hora, String vigencia, boolean estado) {
         this.idReserva = idReserva;
-        this.numero_mesa = numero_mesa;
+        this.mesa = mesa;
         this.dni_cliente = dni_cliente;
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;
+        this.vigencia = vigencia;
         this.estado = estado;
     }
 
@@ -43,12 +46,12 @@ public class Reserva {
         this.idReserva = idReserva;
     }
 
-    public Mesa getNumero_mesa() {
-        return numero_mesa;
+    public Mesa getMesa() {
+        return mesa;
     }
 
-    public void setNumero_mesa(Mesa numero_mesa) {
-        this.numero_mesa = numero_mesa;
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
     }
 
     public String getDni_cliente() {
@@ -83,11 +86,19 @@ public class Reserva {
         this.hora = hora;
     }
 
-    public String getEstado() {
+    public String getVigencia() {
+        return vigencia;
+    }
+
+    public void setVigencia(String vigencia) {
+        this.vigencia = vigencia;
+    }
+
+    public boolean isEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 }
