@@ -3,20 +3,23 @@ package Modelo;
 public class Mesa {
     private int numeroMesa;   
     private int capacidad;   
-    private String estado;    
+    private boolean estado;    
+    private String ocupada; 
 
     public Mesa() {
     }
 
-    public Mesa(int capacidad, String estado) {
-        this.capacidad = capacidad;
-        this.estado = estado;
-    }
-    
-    public Mesa(int numeroMesa, int capacidad, String estado) {
+    public Mesa(int numeroMesa, int capacidad, boolean estado, String ocupada) {
         this.numeroMesa = numeroMesa;
         this.capacidad = capacidad;
         this.estado = estado;
+        this.ocupada = ocupada;
+    }
+
+    public Mesa(int capacidad, boolean estado, String ocupada) {
+        this.capacidad = capacidad;
+        this.estado = estado;
+        this.ocupada = ocupada;
     }
 
     public int getNumeroMesa() {
@@ -35,13 +38,19 @@ public class Mesa {
         this.capacidad = capacidad;
     }
 
-    public String getEstado() {
+    public boolean isEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 
-  
+    public String getOcupada() {
+        return ocupada;
+    }
+
+    public void setOcupada(String ocupada) {
+        this.ocupada = ocupada;
+    }
 }

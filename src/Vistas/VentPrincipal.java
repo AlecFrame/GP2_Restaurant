@@ -5,17 +5,25 @@
  */
 package Vistas;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import javax.swing.JDesktopPane;
+
 /**
  *
  * @author keter
  */
 public class VentPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentPrincipal
-     */
+   private EscritorioPersonalizado_Ej2 escritorio;
+   
     public VentPrincipal() {
         initComponents();
+        
+        escritorio= new Ventana.EscritorioPersonalizado_Ej2();
+        this.setContentPane(escritorio);
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -80,4 +88,22 @@ public class VentPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+    public class EscritorioPersonalizado_Ej2 extends JDesktopPane{
+        private BufferedImage img;
+
+        public EscritorioPersonalizado_Ej2() {
+            try{
+                img=ImageIO.read(getClass().getResourceAsStream("/Recursos/r16.png"));
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected void paintComponent(Graphics g){
+            super.paintComponent(g);
+            g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+        }
+
+      }
 }
