@@ -13,9 +13,6 @@ import java.util.Set;
 public class main {
 
     public static void main(String[] args) {
-        VentPrincipal ventana = new VentPrincipal();
-        ventana.setVisible(true);
-        
         System.out.println("/////   Trabajo Práctico Restaurante, Grupo 2, 2024, Comision 2 /////");
         System.out.println("////\n///// por: Walter Alexander Vertacnik,");
         System.out.println("////       Soto Vela Luciano Ezequiel, ");
