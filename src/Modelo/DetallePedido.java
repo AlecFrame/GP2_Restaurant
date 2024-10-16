@@ -7,10 +7,10 @@ public class DetallePedido {
     private Producto producto;
     private Pedido pedido;
     private int cantidad;
-    private int total;
+    private double total;
     private boolean estado;
 
-    public DetallePedido(int idDetalle, Producto producto, Pedido pedido, int cantidad, int total, boolean estado) {
+    public DetallePedido(int idDetalle, Producto producto, Pedido pedido, int cantidad, double total, boolean estado) {
         this.idDetalle = idDetalle;
         this.producto = producto;
         this.pedido = pedido;
@@ -19,7 +19,7 @@ public class DetallePedido {
         this.estado = estado;
     }
 
-    public DetallePedido(Producto producto, Pedido pedido, int cantidad, int total, boolean estado) {
+    public DetallePedido(Producto producto, Pedido pedido, int cantidad, double total, boolean estado) {
         this.producto = producto;
         this.pedido = pedido;
         this.cantidad = cantidad;
@@ -61,11 +61,11 @@ public class DetallePedido {
         this.cantidad = cantidad;
     }
 
-    public int getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
