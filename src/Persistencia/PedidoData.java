@@ -3,7 +3,6 @@ package Persistencia;
 
 import Modelo.Conexion;
 import Modelo.Pedido;
-import Modelo.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +12,7 @@ import javax.swing.JOptionPane;
 
 public class PedidoData {
     private Connection con = Conexion.cargaConexion();
+    private MesaData mesa = new MesaData();
 
     public PedidoData() {}
 
@@ -64,7 +64,7 @@ public class PedidoData {
         if (rs.next()) {
             pedido = new Pedido(rs.getInt("idPedido"),
                                 rs.getString("dni_mesero"),
-                                rs.getInt("numeroMesa"),
+                                mesa.buscar(rs.getInt("numeroMesa")),
                                 rs.getDouble("importe"),
                                 rs.getBoolean("cobrado"),
                                 rs.getBoolean("estado"));
@@ -105,7 +105,7 @@ public class PedidoData {
         while (rs.next()) {
             Pedido pedido = new Pedido(rs.getInt("idPedido"),
                                        rs.getString("dni_mesero"),
-                                       rs.getInt("numeroMesa"),
+                                       mesa.buscar(rs.getInt("numeroMesa")),
                                        rs.getDouble("importe"),
                                        rs.getBoolean("cobrado"),
                                        rs.getBoolean("estado"));
@@ -125,7 +125,7 @@ public class PedidoData {
         while (rs.next()) {
             Pedido pedido = new Pedido(rs.getInt("idPedido"),
                                        rs.getString("dni_mesero"),
-                                       rs.getInt("numeroMesa"),
+                                       mesa.buscar(rs.getInt("numeroMesa")),
                                        rs.getDouble("importe"),
                                        rs.getBoolean("cobrado"),
                                        rs.getBoolean("estado"));

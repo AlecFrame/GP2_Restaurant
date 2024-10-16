@@ -2,7 +2,6 @@
 package Persistencia;
 
 import Modelo.Conexion;
-import Modelo.Mesa;
 import Modelo.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,19 +16,35 @@ public class ProductosData {
     public ProductosData() {}
     
     public void guardarProducto(Producto p) throws SQLException {
-        String sql = "Insert into productos(codigo,nombre,precio,stock,categoria,estado) values(?,?,?,?,?,?);";
+        if (p.getCodigo()==0) {
+            String sql = "Insert into productos(nombre,precio,stock,categoria,estado) values(?,?,?,?,?);";
         
-        PreparedStatement s = con.prepareStatement(sql);
-        s.setInt(1, p.getCodigo());
-        s.setString(2, p.getNombre());
-        s.setDouble(3, p.getPrecio());
-        s.setInt(4, p.getStock());
-        s.setString(5, p.getCategoria());
-        s.setBoolean(6, p.isEstado());
-        
-        int filas = s.executeUpdate();
-        if (filas>0) {
-            System.out.println("El producto fue registrado con exito");
+            PreparedStatement s = con.prepareStatement(sql);
+            s.setString(1, p.getNombre());
+            s.setDouble(2, p.getPrecio());
+            s.setInt(3, p.getStock());
+            s.setString(4, p.getCategoria());
+            s.setBoolean(5, p.isEstado());
+
+            int filas = s.executeUpdate();
+            if (filas>0) {
+                System.out.println("El producto fue registrado con exito");
+            }
+        }else{
+            String sql = "Insert into productos(codigo,nombre,precio,stock,categoria,estado) values(?,?,?,?,?,?);";
+
+            PreparedStatement s = con.prepareStatement(sql);
+            s.setInt(1, p.getCodigo());
+            s.setString(2, p.getNombre());
+            s.setDouble(3, p.getPrecio());
+            s.setInt(4, p.getStock());
+            s.setString(5, p.getCategoria());
+            s.setBoolean(6, p.isEstado());
+
+            int filas = s.executeUpdate();
+            if (filas>0) {
+                System.out.println("El producto fue registrado con exito");
+            }
         }
     }
     
@@ -75,18 +90,19 @@ public class ProductosData {
         
         int filas = s.executeUpdate();
         if (filas>0) {
-            System.out.println("El estado de producto "+numero+" fue actualizada a "+estado);
+            String palabra = (estado)? "habilitado":"inhabilitado";
+            System.out.println("\nEl estado de producto "+numero+" fue actualizado a "+palabra+"\n");
         }
     }
     
-    public ArrayList<Producto> filtrarMesasOcupacion(String filtro) throws SQLException {
+    public ArrayList<Producto> filtrarCategoria(String filtro) throws SQLException {
         ArrayList<Producto> lista = new ArrayList<>();
         
         String sql = "SELECT * FROM productos WHERE categoria = ?";
         
         PreparedStatement s = con.prepareStatement(sql);
         s.setString(1, filtro);
-        ResultSet r = s.executeQuery(sql);
+        ResultSet r = s.executeQuery();
         
         while (r.next()) {
             lista.add(new Producto(
@@ -100,7 +116,7 @@ public class ProductosData {
         return lista;
     }
     
-    public ArrayList<Producto> listarMesas() throws SQLException {
+    public ArrayList<Producto> listar() throws SQLException {
         ArrayList<Producto> lista = new ArrayList<>();
         
         String sql = "SELECT * FROM productos";
@@ -118,6 +134,75 @@ public class ProductosData {
         }
         
         return lista;
+    }
+    
+    public void actualizar(Producto p,String cambiar) {
+        try {
+            int filas=0;
+            if (cambiar.contains("nombre")) {
+                if (p.getNombre()!=null) {
+                    String sql = "update productos set nombre=? where codigo=?";
+
+                    PreparedStatement st = con.prepareStatement(sql);
+                    st.setString(1, p.getNombre());
+                    st.setInt(2, p.getCodigo());
+
+                    filas = st.executeUpdate();
+                }else
+                    System.err.println("No se actualizo el nombre del producto ("+p.getCodigo()+") porque es nulo");
+            }
+            if (cambiar.contains("precio")) {
+                if (p.getPrecio()!=0) {
+                    String sql = "update productos set precio=? where codigo=?";
+
+                    PreparedStatement st = con.prepareStatement(sql);
+                    st.setDouble(1, p.getPrecio());
+                    st.setInt(2, p.getCodigo());
+
+                    filas = st.executeUpdate();
+                }else
+                    System.err.println("No se actualizo el precio del producto ("+p.getCodigo()+") porque es 0");
+            }
+            if (cambiar.contains("stock")) {
+                if (p.getStock()!=0) {
+                    String sql = "update productos set stock=? where codigo=?";
+
+                    PreparedStatement st = con.prepareStatement(sql);
+                    st.setInt(1, p.getStock());
+                    st.setInt(2, p.getCodigo());
+
+                    filas = st.executeUpdate();
+                }else
+                    System.err.println("No se actualizo el stock del producto ("+p.getCodigo()+") porque es 0");
+            }
+            if (cambiar.contains("categoria")) {
+                if (p.getCategoria()!=null) {
+                    String sql = "update productos set categoria=? where codigo=?";
+
+                    PreparedStatement st = con.prepareStatement(sql);
+                    st.setString(1, p.getCategoria());
+                    st.setInt(2, p.getCodigo());
+
+                    filas = st.executeUpdate();
+                }else
+                    System.err.println("No se actualizo la categoria del producto ("+p.getCodigo()+") porque es null");
+            }
+            if (cambiar.contains("estado")) {
+                String sql = "update productos set estado=? where codigo=?";
+
+                PreparedStatement st = con.prepareStatement(sql);
+                st.setBoolean(1, p.isEstado());
+                st.setInt(2, p.getCodigo());
+
+                filas = st.executeUpdate();
+            }
+            if (filas>0) {
+                System.out.println("\n//// Actualizado con exito");
+            }else
+                System.err.println("No se encontra el codigo del producto");
+        }catch(SQLException e) {
+            System.err.println("Error SQL");
+        }
     }
     
 }
