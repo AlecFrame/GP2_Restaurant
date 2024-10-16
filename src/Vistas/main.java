@@ -19,7 +19,7 @@ public class main {
         System.out.println("/////   Trabajo Práctico Restaurante, Grupo 2, 2024, Comision 2 /////");
         System.out.println("////\n///// por: Walter Alexander Vertacnik,");
         System.out.println("////       Soto Vela Luciano Ezequiel, ");
-        System.out.println("////       Ferro Julieta Ferro, ");
+        System.out.println("////       Ferro Julieta, ");
         System.out.println("////       Pagnone Patricia, ");
         System.out.println("////       Muñoz Maycol\n//");
         
