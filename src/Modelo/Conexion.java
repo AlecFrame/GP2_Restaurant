@@ -2,7 +2,6 @@
 package Modelo;
 
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 public class Conexion {
     private static String URL = "jdbc:mysql://localhost/";
@@ -18,7 +17,7 @@ public class Conexion {
                 Class.forName("org.mariadb.jdbc.Driver");
                 conexion=DriverManager.getConnection(URL+BD,USUARIO,PASSWORD);
             }catch(SQLException|ClassNotFoundException e) {
-               JOptionPane.showMessageDialog(null, "No cargaron los drives o base de datos");
+                System.err.println("No se cargo la base de datos, (puede que no tenga el XAMPP abierto)");
             }
         }
         return conexion;
