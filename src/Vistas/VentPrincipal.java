@@ -24,8 +24,6 @@ public class VentPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<<<<<<< Updated upstream
-=======
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenu = new javax.swing.JMenuBar();
         jMesa = new javax.swing.JMenu();
@@ -37,7 +35,6 @@ public class VentPrincipal extends javax.swing.JFrame {
         jCategoria = new javax.swing.JMenuItem();
         jSalir = new javax.swing.JMenu();
 
->>>>>>> Stashed changes
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú");
         setBackground(new java.awt.Color(255, 255, 204));
@@ -45,8 +42,6 @@ public class VentPrincipal extends javax.swing.JFrame {
 
         jDesktopPane1.setMinimumSize(new java.awt.Dimension(1, 10));
 
-<<<<<<< Updated upstream
-=======
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
@@ -65,7 +60,6 @@ public class VentPrincipal extends javax.swing.JFrame {
         jMenu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenu.setInheritsPopupMenu(true);
         jMenu.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        jMenu.setMinimumSize(new java.awt.Dimension(0, 0));
 
         jMesa.setBackground(new java.awt.Color(153, 102, 0));
         jMesa.setBorder(null);
@@ -121,52 +115,44 @@ public class VentPrincipal extends javax.swing.JFrame {
         jSalir.setText("Salir");
         jSalir.setDoubleBuffered(true);
         jSalir.setInheritsPopupMenu(true);
-        jSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSalirActionPerformed(evt);
+        jSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jSalirMouseClicked(evt);
             }
         });
         jMenu.add(jSalir);
 
         setJMenuBar(jMenu);
 
->>>>>>> Stashed changes
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< Updated upstream
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-=======
             .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
->>>>>>> Stashed changes
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< Updated upstream
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-=======
     private void jPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPedidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPedidoActionPerformed
 
-    private void jSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirActionPerformed
-        JOptionPane.showConfirmDialog(this, "¿Desea salir de la aplicación?","Precaución",JOptionPane.WARNING_MESSAGE);
-        int rta=0;
-        if(rta==1){
-        System.exit(WIDTH);
+    private void jSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSalirMouseClicked
+
+        int cartel= JOptionPane.showConfirmDialog(this, "¿Desea salir de la aplicación?","Precaución",JOptionPane.WARNING_MESSAGE);
+        
+        if(cartel == JOptionPane.YES_OPTION){
+            System.exit(WIDTH);
         }
-    }//GEN-LAST:event_jSalirActionPerformed
+        
+        
+   
+    }//GEN-LAST:event_jSalirMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -180,7 +166,6 @@ public class VentPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jProductos;
     private javax.swing.JMenuItem jReserva;
     private javax.swing.JMenu jSalir;
->>>>>>> Stashed changes
     // End of variables declaration//GEN-END:variables
    
     //INCORPORAR IMAGEN AL ESCRITORIO

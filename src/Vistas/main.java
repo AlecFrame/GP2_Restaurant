@@ -133,7 +133,7 @@ public class main {
                     do {
                         valido = true;
                         p.setNombre(leerString.nextLine());
-                        if (p.getNombre().isBlank()|p.getNombre().isEmpty()) {
+                        if (p.getNombre().trim().isEmpty()|p.getNombre().isEmpty()) {
                             System.err.print("//// El nombre del producto está vacio, intentelo nuevamente\n//// : ");
                             valido=false;
                         }
@@ -271,7 +271,7 @@ public class main {
                             do {
                                 valido = true;
                                 p.setNombre(leerString.nextLine());
-                                if (p.getNombre().isBlank()|p.getNombre().isEmpty()) {
+                                if (p.getNombre().trim().isEmpty()|p.getNombre().isEmpty()) {
                                     System.err.print("//// El nombre del producto está vacio, intentelo nuevamente\n//// : ");
                                     valido=false;
                                 }
